@@ -121,7 +121,7 @@ class Keyboard():
                 self.dev = InputDevice("/dev/input/event0")
                 have_dev = True
             except OSError:
-                print "Keyboard not found, waiting 3 seconds and retrying"
+                print ("Keyboard not found, waiting 3 seconds and retrying")
                 time.sleep(3)
 
         print ("Found a keyboard")
