@@ -60,16 +60,16 @@ def __init__(self):
 def listen(self):
     # Advertise our service record
     self.service_handle = self.service.AddRecord(self.service_record)
-    print "Service record added"
+    print ("Service record added")
 
     # Start listening on the server sockets
     self.scontrol.listen(1) # Limit of 1 connection
     self.sinterrupt.listen(1)
-    print "Waiting for a connection"
+    print ("Waiting for a connection")
     self.ccontrol, self.cinfo = self.scontrol.accept()
-    print "Got a connection on the control channel from " + self.cinfo[Bluetooth.HOST]
+    print ("Got a connection on the control channel from " + self.cinfo[Bluetooth.HOST])
     self.cinterrupt, self.cinfo = self.sinterrupt.accept()
-    print "Got a connection on the interrupt channel from " + self.cinfo[Bluetooth.HOST]
+    print ("Got a connection on the interrupt channel from " + self.cinfo[Bluetooth.HOST])
 
 def send_input(self, ir):
     # Convert the hex array to a string
@@ -124,7 +124,7 @@ class Keyboard():
                 print "Keyboard not found, waiting 3 seconds and retrying"
                 time.sleep(3)
 
-        print "Found a keyboard"
+        print ("Found a keyboard")
 
     def change_state(self, event):
         evdev_code = ecodes.KEY[event.code]
